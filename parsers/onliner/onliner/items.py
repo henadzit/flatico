@@ -21,3 +21,5 @@ class OnlinerItem(scrapy.Item):
 
     resale = scrapy.Field()
     up_available_in = scrapy.Field()
+
+    image_urls = scrapy.Field()
