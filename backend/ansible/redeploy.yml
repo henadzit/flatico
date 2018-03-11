@@ -5,7 +5,35 @@
     - git:
         repo: 'https://github.com/umate/flatico.git'
         dest: '/root/flatico'
+        version: 'flat-image-classification-model-integration'
         update: yes
+
+    - git:
+        repo: 'https://github.com/henadzit/image-classification-tensorflow.git'
+        dest: '/root/image-classification'
+        update: yes
+
+    - name: Install Image classifier requirements
+      shell: pip3 install -r requirements.txt
+      args:
+        executable: /bin/bash
+        chdir: /root/image-classification
+
+    - name: Train Image classifier
+      shell: |
+        python3 train.py \
+        --bottleneck_dir=logs/bottlenecks \
+        --how_many_training_steps=100 \
+        --model_dir=inception \
+        --summaries_dir=logs/training_summaries/basic \
+        --output_graph=/root/flatico/backend/logs/trained_graph.pb \
+        --output_labels=/root/flatico/backend/logs/trained_labels.txt \
+        --image_dir=./dataset
+
+      output: true
+      args:
+        executable: /bin/bash
+        chdir: /root/image-classification
 
     - name: Install Backend requirements
       shell: pip3 install -r requirements.txt
@@ -17,10 +45,6 @@
       template: src=templates/backend.j2 dest=/etc/systemd/system/flatico-backend.service
       become: true
       become_user: root
-    # - name: make run.sh executable
-    #   file:
-    #     path: /root/flatico/backend/run.sh
-    #     mode: "u=rwx,g=rx,o=rx"
     - name: restart web server
       systemd:
         state: restarted

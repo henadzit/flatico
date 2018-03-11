@@ -41,7 +41,7 @@ async def handle_predict(request):
 
     print(model_input_params)
     
-    response_data = { 'predicted_price': { 'value': 542345, 'currency': 'USD' }}
+    response_data = { 'predicted_price': { 'value': 542345, 'currency': 'USD' }, 'input_params': model_input_params }
     return web.json_response(response_data)
 
 app = web.Application()
