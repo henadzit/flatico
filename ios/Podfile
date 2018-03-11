@@ -1,0 +1,10 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+use_frameworks!
+
+target 'Flatico' do
+  pod 'GooglePlaces'
+  pod 'GoogleMaps'
+  pod 'Alamofire', '~> 4.7'
+  pod 'lottie-ios'
+end
