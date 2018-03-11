@@ -1,6 +1,8 @@
 from aiohttp import web
 import io
 
+from classifier import Classifier
+
 import tempfile
 
 ### Request format:
@@ -11,6 +13,10 @@ import tempfile
 # total_square
 # latitude
 # longitude
+
+
+image_classifier = Classifier()
+
 
 async def handle_predict(request):
     data = await request.post()
@@ -30,10 +36,10 @@ async def handle_predict(request):
         img.write(uploaded_file_reader.read())
         img.seek(0, 0)
         
-        # res = classifier.classify(img.name)[0]
-        # classes.append(res[0])
+        classification_res = image_classifier.classify(img.name)[0]
+        model_input_params['apt_state'] = classification_res[0]
 
-    
+    print(model_input_params)
     
     response_data = { 'predicted_price': { 'value': 542345, 'currency': 'USD' }}
     return web.json_response(response_data)
