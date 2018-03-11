@@ -8,7 +8,9 @@ from aiohttp import web
 # total_square
 
 async def handle_predict(request):
-    # data = await request.post()
+    data = await request.post()
+    print('data={}'.format(data))
+
     response_data = { 'predicted_price': { 'value': 542345, 'currency': 'USD' }}
     return web.json_response(response_data)
 
