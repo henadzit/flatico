@@ -64,7 +64,7 @@ async def handle_predict(request):
     response_data = { 'predicted_price': { 'value': price, 'currency': 'USD' }, 'input_params': model_input_params }
     return web.json_response(response_data)
 
-app = web.Application(client_max_size=10_000_000)
+app = web.Application(client_max_size=10000000)
 app.router.add_post('/v1/predict-price', handle_predict)
 
 web.run_app(app, port=8080)
