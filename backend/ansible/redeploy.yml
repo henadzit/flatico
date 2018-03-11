@@ -21,8 +21,11 @@
     #   file:
     #     path: /root/flatico/backend/run.sh
     #     mode: "u=rwx,g=rx,o=rx"
-    - name: start web server
-      systemd: state=started name=flatico-backend daemon_reload=yes
+    - name: restart web server
+      systemd:
+        state: restarted
+        name: flatico-backend
+        daemon_reload: yes
       become: true
       become_user: root
         # - name: change dir
