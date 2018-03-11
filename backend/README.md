@@ -1,5 +1,12 @@
 ## Backend service
 
+### Deployment
+
+```
+ansible-playbook -i hosts provision.yml
+ansible-playbook -i hosts redeploy.yml
+```
+
 #### Request
 
 ```
