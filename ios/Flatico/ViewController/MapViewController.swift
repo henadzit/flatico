@@ -63,6 +63,8 @@ class MapViewController: UIViewController {
         
         let position = CLLocationCoordinate2D(latitude: 53.9045, longitude: 27.5615)
         let marker = GMSMarker(position: position)
+        QueryModel.shared.latitude = 53.9045
+        QueryModel.shared.longitude = 27.5615
         
         // I have taken a pin image which is a custom image
         let markerImage = UIImage(named: "pinMap")!.withRenderingMode(.alwaysTemplate)
@@ -71,7 +73,7 @@ class MapViewController: UIViewController {
         let markerView = UIImageView(image: markerImage)
         
 //        //changing the tint color of the image
-//        markerView.tintColor = UIColor.red
+        markerView.tintColor = UIColor.red
         
         marker.iconView = markerView
         
@@ -86,6 +88,8 @@ extension MapViewController : GMSMapViewDelegate {
     
     func mapView (_ mapView: GMSMapView, didEndDragging didEndDraggingMarker: GMSMarker) {
         
+        QueryModel.shared.latitude = didEndDraggingMarker.position.latitude
+        QueryModel.shared.longitude = didEndDraggingMarker.position.longitude
         print("Drag ended!")
         print("Update Marker data if stored somewhere.")
         
