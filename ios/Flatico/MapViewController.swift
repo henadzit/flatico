@@ -24,24 +24,11 @@ class MapViewController: UIViewController {
     // The currently selected place.
     var selectedPlace: GMSPlace?
     
-    // A default location to use when location permission is not granted.
-    let defaultLocation = CLLocation(latitude: -33.869405, longitude: 151.199)
+    @IBOutlet weak var mapContainerView: UIView!
     
-    // Update the map once the user has made their selection.
-    @IBAction func unwindToMain(segue: UIStoryboardSegue) {
-        // Clear the map.
-        mapView.clear()
-        
-        // Add a marker to the map.
-        if selectedPlace != nil {
-            let marker = GMSMarker(position: (self.selectedPlace?.coordinate)!)
-            marker.title = selectedPlace?.name
-            marker.snippet = selectedPlace?.formattedAddress
-            marker.map = mapView
-        }
-        
-        listLikelyPlaces()
-    }
+    // A default location to use when location permission is not granted.
+    let defaultLocation = CLLocation(latitude: 53.9045, longitude: 27.5615)
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,43 +51,32 @@ class MapViewController: UIViewController {
         mapView.settings.myLocationButton = true
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.isMyLocationEnabled = true
+        mapView.delegate = self
         
         // Add the map to the view, hide it until we've got a location update.
-        view.addSubview(mapView)
+        mapContainerView.addSubview(mapView)
         mapView.isHidden = false
-        
-        listLikelyPlaces()
     }
     
-    // Populate the array with the list of likely places.
-    func listLikelyPlaces() {
-        // Clean up from previous sessions.
-        likelyPlaces.removeAll()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        placesClient.currentPlace(callback: { (placeLikelihoods, error) -> Void in
-            if let error = error {
-                // TODO: Handle the error.
-                print("Current Place error: \(error.localizedDescription)")
-                return
-            }
-            
-            // Get likely places and add to the list.
-            if let likelihoodList = placeLikelihoods {
-                for likelihood in likelihoodList.likelihoods {
-                    let place = likelihood.place
-                    self.likelyPlaces.append(place)
-                }
-            }
-        })
+        let position = CLLocationCoordinate2D(latitude: 53.9045, longitude: 27.5615)
+        let marker = GMSMarker(position: position)
+        marker.title = "Hello World"
+        marker.isDraggable = true
+        marker.map = mapView
     }
     
-    // Prepare the segue.
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueToSelect" {
-           // if let nextViewController = segue.destination as? PlacesViewController {
-             //   nextViewController.likelyPlaces = likelyPlaces
-           // }
-        }
+}
+
+extension MapViewController : GMSMapViewDelegate {
+    
+    func mapView (_ mapView: GMSMapView, didEndDragging didEndDraggingMarker: GMSMarker) {
+        
+        print("Drag ended!")
+        print("Update Marker data if stored somewhere.")
+        
     }
 }
 
@@ -123,7 +99,6 @@ extension MapViewController: CLLocationManagerDelegate {
             mapView.animate(to: camera)
         }
         
-        listLikelyPlaces()
     }
     
     // Handle authorization for the location manager.
