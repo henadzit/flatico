@@ -10,6 +10,7 @@
 		92151F8C2054836A00A2B153 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92151F8B2054836A00A2B153 /* MapKit.framework */; };
 		92151F8E20550DA400A2B153 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92151F8D20550DA400A2B153 /* QuestionsViewController.swift */; };
 		92151F902055195100A2B153 /* LottieAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92151F8F2055195100A2B153 /* LottieAnimationViewController.swift */; };
+		92151F9620551EED00A2B153 /* Boat_Loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 92151F9520551EED00A2B153 /* Boat_Loader.json */; };
 		924F847D205465A30076436C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924F847C205465A30076436C /* AppDelegate.swift */; };
 		924F847F205465A30076436C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924F847E205465A30076436C /* MapViewController.swift */; };
 		924F8482205465A30076436C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924F8480205465A30076436C /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		92151F8B2054836A00A2B153 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		92151F8D20550DA400A2B153 /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
 		92151F8F2055195100A2B153 /* LottieAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationViewController.swift; sourceTree = "<group>"; };
+		92151F9520551EED00A2B153 /* Boat_Loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Boat_Loader.json; sourceTree = "<group>"; };
 		924F8479205465A30076436C /* Flatico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flatico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		924F847C205465A30076436C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		924F847E205465A30076436C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -67,10 +69,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		92151F9420551ED900A2B153 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				92151F9520551EED00A2B153 /* Boat_Loader.json */,
+				924F8483205465A30076436C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		924F8470205465A30076436C = {
 			isa = PBXGroup;
 			children = (
 				924F847B205465A30076436C /* Flatico */,
+				92151F9420551ED900A2B153 /* Resources */,
 				924F847A205465A30076436C /* Products */,
 				81FB6703F7B7F8534520716C /* Pods */,
 				8DEE9B57C50F00E58089C14E /* Frameworks */,
@@ -94,7 +106,6 @@
 				92151F8D20550DA400A2B153 /* QuestionsViewController.swift */,
 				92151F8F2055195100A2B153 /* LottieAnimationViewController.swift */,
 				924F8480205465A30076436C /* Main.storyboard */,
-				924F8483205465A30076436C /* Assets.xcassets */,
 				924F8485205465A30076436C /* LaunchScreen.storyboard */,
 				924F8488205465A30076436C /* Info.plist */,
 			);
@@ -168,6 +179,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92151F9620551EED00A2B153 /* Boat_Loader.json in Resources */,
 				924F8487205465A30076436C /* LaunchScreen.storyboard in Resources */,
 				924F8484205465A30076436C /* Assets.xcassets in Resources */,
 				924F8482205465A30076436C /* Main.storyboard in Resources */,
@@ -222,10 +234,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Flatico/Pods-Flatico-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
