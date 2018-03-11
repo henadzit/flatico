@@ -1,4 +1,7 @@
 from aiohttp import web
+import io
+
+import tempfile
 
 ### Request format:
 # photo_0: picture of an apartment
@@ -19,7 +22,17 @@ async def handle_predict(request):
         'latitude': float(data.get('latitude', None)),
         'longitude': float(data.get('longitude', None)),
     }
-    print(model_input_params)
+
+    buffer = data.get('photo_0').file
+    uploaded_file_reader = io.BufferedReader(buffer)
+
+    with tempfile.NamedTemporaryFile(mode="wb", delete=True) as img:
+        img.write(uploaded_file_reader.read())
+        img.seek(0, 0)
+        
+        # res = classifier.classify(img.name)[0]
+        # classes.append(res[0])
+
     
     
     response_data = { 'predicted_price': { 'value': 542345, 'currency': 'USD' }}
