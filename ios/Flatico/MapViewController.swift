@@ -63,6 +63,18 @@ class MapViewController: UIViewController {
         
         let position = CLLocationCoordinate2D(latitude: 53.9045, longitude: 27.5615)
         let marker = GMSMarker(position: position)
+        
+        // I have taken a pin image which is a custom image
+        let markerImage = UIImage(named: "pinMap")!.withRenderingMode(.alwaysTemplate)
+        
+        //creating a marker view
+        let markerView = UIImageView(image: markerImage)
+        
+//        //changing the tint color of the image
+//        markerView.tintColor = UIColor.red
+        
+        marker.iconView = markerView
+        
         marker.title = "Hello World"
         marker.isDraggable = true
         marker.map = mapView
