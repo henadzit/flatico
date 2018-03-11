@@ -49,6 +49,7 @@ class PhotoUploadViewController: UIViewController, UINavigationControllerDelegat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         imagePicker.dismiss(animated: true, completion: nil)
         
+       // var originalImage = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
         QueryModel.shared.imageToUpload = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
         let vc = storyboard?.instantiateViewController(withIdentifier: "LottieAnimationViewControllerKey") as! LottieAnimationViewController
        // vc.image
@@ -56,5 +57,14 @@ class PhotoUploadViewController: UIViewController, UINavigationControllerDelegat
                                                  animated: true)
 
     }
+    
+    func imageWithImage(image:UIImage, scaledToSize newSize:CGSize) -> UIImage{
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0);
+        image.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: newSize.width, height: newSize.height)))
+        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+
     
 }

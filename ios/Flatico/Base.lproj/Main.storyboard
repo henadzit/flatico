@@ -447,6 +447,9 @@
                                 <state key="normal" title="&lt; Начать заново">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="resetButtonDidPrssed:" destination="m0b-aB-BzB" eventType="touchUpInside" id="wwa-7Y-biM"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Стоимость квартиры" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLa-7B-7dL">
                                 <rect key="frame" x="0.0" y="82" width="375" height="36"/>
@@ -480,7 +483,7 @@
                     </view>
                     <connections>
                         <outlet property="finalFlatPriceLabel" destination="bS1-tA-0dI" id="SWG-tQ-Sf5"/>
-                        <outlet property="resetStateDidPressed" destination="O5r-RW-D6v" id="fvu-fp-RKR"/>
+                        <outlet property="resetButtonDidPressed" destination="O5r-RW-D6v" id="zkv-FM-LoQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gkX-tU-9gq" userLabel="First Responder" sceneMemberID="firstResponder"/>

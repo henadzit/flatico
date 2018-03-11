@@ -17,8 +17,12 @@ class FinalViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        finalFlatPriceLabel.text = "$\(finalPriceValue)"
     }
-
-    @IBOutlet weak var resetStateDidPressed: UIButton!
+    
+    @IBAction func resetButtonDidPrssed(_ sender: UIButton) {
+        QueryModel.shared.resetToDefault()
+        navigationController?.popToRootViewController(animated: true)
+    }
     
 }

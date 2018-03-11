@@ -55,7 +55,7 @@ class LottieAnimationViewController: UIViewController {
     
     func createUploadTask() {
         
-        let url = "http://159.65.94.180/v1/predict-price"
+        let url = "http://159.65.94.180:8080/v1/predict-price"
         
         let imageToUpload = QueryModel.shared.imageToUpload//UIImage(named:"startBackgroundImage")!
         let imageData = UIImageJPEGRepresentation(imageToUpload, 1.0)
@@ -95,8 +95,6 @@ class LottieAnimationViewController: UIViewController {
         }
     }
 }
-
-
 
 
 //    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
