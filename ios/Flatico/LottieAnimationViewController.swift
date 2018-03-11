@@ -8,6 +8,7 @@
 
 import UIKit
 import Lottie
+import Alamofire
 
 class LottieAnimationViewController: UIViewController, URLSessionDownloadDelegate {
     
@@ -23,16 +24,11 @@ class LottieAnimationViewController: UIViewController, URLSessionDownloadDelegat
         // Set view to full screen, aspectFill
         boatAnimation!.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         boatAnimation!.contentMode = .scaleAspectFill
-        boatAnimation!.frame = view.bounds
+        boatAnimation!.frame = CGRect(x: view.bounds.origin.x, y: view.bounds.origin.y, width: view.bounds.width/1.5, height: view.bounds.height/1.5)//view.bounds
+        boatAnimation!.center = CGPoint(x:view.bounds.midX, y:view.bounds.midY-120);
         // Add the Animation
         view.addSubview(boatAnimation!)
         
-        let button = UIButton(type: .system)
-        button.setTitle("Start Download", for: .normal)
-        button.sizeToFit()
-        button.center = view.center
-        button.addTarget(self, action: #selector(startDownload(button:)), for: .touchUpInside)
-        view.addSubview(button)
         
         // The center of the screen, where the boat will start
         let screenCenter = CGPoint(x:view.bounds.midX, y:view.bounds.midY)
@@ -50,9 +46,9 @@ class LottieAnimationViewController: UIViewController, URLSessionDownloadDelegat
         
         //Play the first portion of the animation on loop until the download finishes.
         boatAnimation!.loopAnimation = true
-        boatAnimation!.play(fromProgress: 0,
-                            toProgress: 0.5,
-                            withCompletion: nil)
+        boatAnimation!.play()
+        
+        createUploadTask()
         
     }
     
@@ -67,6 +63,46 @@ class LottieAnimationViewController: UIViewController, URLSessionDownloadDelegat
         
         downloadTask = session.downloadTask(with:downloadRequest)
         downloadTask!.resume()
+    }
+    
+    func createUploadTask() {
+        let yourUrl = "http://159.65.94.180/v1/predict-price"
+        
+        let imageToUpload = UIImage(named:"startBackgroundImage")
+        let params: Parameters = ["rooms_count": "1", "floor": "2", "has_balcony" : "true", "total_square" : "22", "latitude" : "53.1", "longitude" : "57" ]
+        Alamofire.upload(multipartFormData:
+            {
+                (multipartFormData) in
+                multipartFormData.append(UIImageJPEGRepresentation(imageToUpload!, 0.1)!, withName: "photo_0", fileName: "file.jpeg", mimeType: "image/jpeg")
+                for (key, value) in params
+                {
+                    multipartFormData.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key)
+                }
+        }, to:yourUrl,headers:nil)
+        { (result) in
+            switch result {
+            case .success(let upload,_,_ ):
+                upload.uploadProgress(closure: { (progress) in
+                    //Print progress
+                })
+                upload.responseJSON
+                    { response in
+                        //print response.result
+                        if response.result.value != nil
+                        {
+                            let dict :NSDictionary = response.result.value! as! NSDictionary
+                            let status = dict.value(forKey: "status")as! String
+                            if status=="1"
+                            {
+                                print("DATA UPLOAD SUCCESSFULLY")
+                            }
+                        }
+                }
+            case .failure(let _):
+                
+                break
+            }
+        }
     }
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {

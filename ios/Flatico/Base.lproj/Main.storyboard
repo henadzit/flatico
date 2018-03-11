@@ -102,6 +102,17 @@
                     <view key="view" contentMode="scaleToFill" id="mvm-tL-NW3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0Q-5j-2zy">
+                                <rect key="frame" x="0.0" y="606" width="375" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.23137254900000001" green="0.48627450979999998" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="32"/>
+                                <state key="normal" title="Далее &gt;">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Lfn-rT-oiX"/>
                     </view>
@@ -231,13 +242,29 @@
                     <view key="view" contentMode="scaleToFill" id="olm-9x-4Cv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Идёт расчёт стоимости" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51U-i1-kyU">
+                                <rect key="frame" x="0.0" y="426" width="375" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="bfQ-VV-plv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
+                                <color key="textColor" red="0.23137254900000001" green="0.48627450979999998" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="51U-i1-kyU" firstAttribute="leading" secondItem="RMj-OB-LzF" secondAttribute="leading" id="KqK-aq-cYO"/>
+                            <constraint firstItem="RMj-OB-LzF" firstAttribute="bottom" secondItem="51U-i1-kyU" secondAttribute="bottom" constant="220" id="lgV-oQ-dBu"/>
+                            <constraint firstItem="51U-i1-kyU" firstAttribute="trailing" secondItem="RMj-OB-LzF" secondAttribute="trailing" id="mcU-H2-5kb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="RMj-OB-LzF"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lTI-JN-Y84" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3161" y="32"/>
+            <point key="canvasLocation" x="3329" y="32"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zNW-Ev-wNb">
