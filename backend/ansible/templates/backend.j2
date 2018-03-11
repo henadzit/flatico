@@ -1,0 +1,13 @@
+[Unit]
+Description=Flatico backend web-service
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/root/flatico/backend
+ExecStart=/root/flatico/backend/run.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

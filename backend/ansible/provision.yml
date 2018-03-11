@@ -1,0 +1,18 @@
+- hosts: flatico
+  remote_user: root
+  gather_facts: false
+
+  tasks:
+    - name: install python
+      apt:
+        name: python3
+    - name: install pip
+      apt:
+        name: python3-pip
+
+    - name: install git
+      apt:
+        name: git
+
+    # - name: clone the repo
+    #   shell: git clone git@github.com:umate/flatico.git
