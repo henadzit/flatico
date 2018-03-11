@@ -19,6 +19,7 @@
 		924F849120546DB10076436C /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924F849020546DB10076436C /* StartViewController.swift */; };
 		92E939D02055537C000F13C2 /* QueryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E939CF2055537C000F13C2 /* QueryModel.swift */; };
 		92E939D220555DCE000F13C2 /* PhotoUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E939D120555DCE000F13C2 /* PhotoUploadViewController.swift */; };
+		92E939D4205564F9000F13C2 /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E939D3205564F9000F13C2 /* FinalViewController.swift */; };
 		9FA1FB9AEC6CABF705909F07 /* Pods_Flatico.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADBD3FF23469352F0DF5AFA /* Pods_Flatico.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		924F849020546DB10076436C /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		92E939CF2055537C000F13C2 /* QueryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryModel.swift; sourceTree = "<group>"; };
 		92E939D120555DCE000F13C2 /* PhotoUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUploadViewController.swift; sourceTree = "<group>"; };
+		92E939D3205564F9000F13C2 /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
 		AADBD3FF23469352F0DF5AFA /* Pods_Flatico.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flatico.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0EEB30C0A31A7D0E52894F7 /* Pods-Flatico.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flatico.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flatico/Pods-Flatico.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +132,7 @@
 				92151F8D20550DA400A2B153 /* QuestionsViewController.swift */,
 				92E939D120555DCE000F13C2 /* PhotoUploadViewController.swift */,
 				92151F8F2055195100A2B153 /* LottieAnimationViewController.swift */,
+				92E939D3205564F9000F13C2 /* FinalViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				924F847F205465A30076436C /* MapViewController.swift in Sources */,
 				92E939D220555DCE000F13C2 /* PhotoUploadViewController.swift in Sources */,
 				924F847D205465A30076436C /* AppDelegate.swift in Sources */,
+				92E939D4205564F9000F13C2 /* FinalViewController.swift in Sources */,
 				92151F8E20550DA400A2B153 /* QuestionsViewController.swift in Sources */,
 				924F849120546DB10076436C /* StartViewController.swift in Sources */,
 			);

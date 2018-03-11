@@ -21,14 +21,14 @@ class PhotoUploadViewController: UIViewController, UINavigationControllerDelegat
     @IBAction func takePhoto(_ sender: UIButton) {
         imagePicker =  UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = .camera
+        imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
     }
     
     //MARK: - Saving Image here
     @IBAction func save(_ sender: AnyObject) {
-        
-      //  UIImageWriteToSavedPhotosAlbum(imageTake.image!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+       
+//        UIImageWriteToSavedPhotosAlbum(imageTake.image!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
     //MARK: - Add image to Library
@@ -48,7 +48,13 @@ class PhotoUploadViewController: UIViewController, UINavigationControllerDelegat
     //MARK: - Done image capture here
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         imagePicker.dismiss(animated: true, completion: nil)
-        imageTake.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        QueryModel.shared.imageToUpload = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
+        let vc = storyboard?.instantiateViewController(withIdentifier: "LottieAnimationViewControllerKey") as! LottieAnimationViewController
+       // vc.image
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
+
     }
     
 }

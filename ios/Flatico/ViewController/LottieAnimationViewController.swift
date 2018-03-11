@@ -57,14 +57,14 @@ class LottieAnimationViewController: UIViewController {
         
         let url = "http://159.65.94.180/v1/predict-price"
         
-        let imageToUpload = UIImage(named:"startBackgroundImage")!
+        let imageToUpload = QueryModel.shared.imageToUpload//UIImage(named:"startBackgroundImage")!
         let imageData = UIImageJPEGRepresentation(imageToUpload, 1.0)
         
         let headers: HTTPHeaders = [
             "Content-type": "multipart/form-data"
         ]
         
-        let parameters: Parameters = ["rooms_count": 1, "floor": 2, "has_balcony" : true, "total_square" : 22, "latitude" : 53.1, "longitude" : 57.44]
+        let parameters: Parameters = ["rooms_count": QueryModel.shared.roomCount, "floor": QueryModel.shared.floor, "has_balcony" : QueryModel.shared.isBalconExist, "total_square" : QueryModel.shared.totalSquere, "latitude" : QueryModel.shared.latitude, "longitude" : QueryModel.shared.longitude]
         
         Alamofire.upload(multipartFormData: { (multipartFormData) in
             for (key, value) in parameters {
@@ -81,11 +81,12 @@ class LottieAnimationViewController: UIViewController {
                 upload.responseJSON { response in
                     print("Succesfully uploaded")
                     print("\(response)")
-                    if let err = response.error{
-                        //  onError?(err)
-                        return
-                    }
-                    //   onCompletion?(nil)
+                    
+                    
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "finalViewControllerKey") as! FinalViewController
+                    vc.finalPriceValue = 10
+                    self.navigationController?.pushViewController(vc,
+                                                             animated: true)
                 }
             case .failure(let error):
                 print("Error in upload: \(error.localizedDescription)")

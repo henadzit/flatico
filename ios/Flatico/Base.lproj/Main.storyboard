@@ -372,9 +372,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5DD-JJ-6Bn">
-                                <rect key="frame" x="79" y="273.5" width="216" height="56"/>
+                                <rect key="frame" x="64.5" y="273.5" width="245" height="56"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="32"/>
-                                <state key="normal" title="Сделать фото"/>
+                                <state key="normal" title="Загрузить фото"/>
                                 <connections>
                                     <action selector="takePhoto:" destination="ojc-4P-DzS" eventType="touchUpInside" id="iuW-1I-dGY"/>
                                 </connections>
@@ -398,7 +398,7 @@
         <!--Lottie Animation View Controller-->
         <scene sceneID="ytL-9t-rP9">
             <objects>
-                <viewController id="WT1-Pu-XX1" customClass="LottieAnimationViewController" customModule="Flatico" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LottieAnimationViewControllerKey" id="WT1-Pu-XX1" customClass="LottieAnimationViewController" customModule="Flatico" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="olm-9x-4Cv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -429,20 +429,63 @@
             </objects>
             <point key="canvasLocation" x="4113" y="32"/>
         </scene>
-        <!--View Controller-->
+        <!--Final View Controller-->
         <scene sceneID="edH-vf-zCf">
             <objects>
-                <viewController id="m0b-aB-BzB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="finalViewControllerKey" id="m0b-aB-BzB" customClass="FinalViewController" customModule="Flatico" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BvP-MF-oXt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5r-RW-D6v">
+                                <rect key="frame" x="0.0" y="542" width="375" height="61"/>
+                                <color key="backgroundColor" red="0.23137254900000001" green="0.48627450979999998" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="QgE-Wj-e3g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="32"/>
+                                <state key="normal" title="&lt; Начать заново">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Стоимость квартиры" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLa-7B-7dL">
+                                <rect key="frame" x="0.0" y="82" width="375" height="36"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="26"/>
+                                <color key="textColor" red="0.23137254900000001" green="0.48627450979999998" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$46500" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bS1-tA-0dI">
+                                <rect key="frame" x="0.0" y="152" width="375" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="pUV-Og-WdN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="53"/>
+                                <color key="textColor" red="0.23137254900000001" green="0.48627450979999998" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bS1-tA-0dI" firstAttribute="top" secondItem="fLa-7B-7dL" secondAttribute="bottom" constant="34" id="06n-U5-B1V"/>
+                            <constraint firstItem="O5r-RW-D6v" firstAttribute="trailing" secondItem="ZdR-JW-B2j" secondAttribute="trailing" id="2c6-83-TIi"/>
+                            <constraint firstItem="fLa-7B-7dL" firstAttribute="top" secondItem="ZdR-JW-B2j" secondAttribute="top" constant="82" id="AT5-we-tpd"/>
+                            <constraint firstItem="fLa-7B-7dL" firstAttribute="trailing" secondItem="ZdR-JW-B2j" secondAttribute="trailing" id="KQx-Bw-N2x"/>
+                            <constraint firstItem="O5r-RW-D6v" firstAttribute="leading" secondItem="ZdR-JW-B2j" secondAttribute="leading" id="VeV-Zb-h4v"/>
+                            <constraint firstItem="fLa-7B-7dL" firstAttribute="leading" secondItem="ZdR-JW-B2j" secondAttribute="leading" id="jPT-6V-PPd"/>
+                            <constraint firstItem="bS1-tA-0dI" firstAttribute="trailing" secondItem="ZdR-JW-B2j" secondAttribute="trailing" id="mlH-hc-TjB"/>
+                            <constraint firstItem="bS1-tA-0dI" firstAttribute="leading" secondItem="ZdR-JW-B2j" secondAttribute="leading" id="ox9-Xe-bJK"/>
+                            <constraint firstItem="O5r-RW-D6v" firstAttribute="bottom" secondItem="ZdR-JW-B2j" secondAttribute="bottom" id="xfj-ES-79m"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ZdR-JW-B2j"/>
                     </view>
+                    <connections>
+                        <outlet property="finalFlatPriceLabel" destination="bS1-tA-0dI" id="SWG-tQ-Sf5"/>
+                        <outlet property="resetStateDidPressed" destination="O5r-RW-D6v" id="fvu-fp-RKR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gkX-tU-9gq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5065" y="33"/>
+            <point key="canvasLocation" x="5064.8000000000002" y="32.833583208395808"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zNW-Ev-wNb">

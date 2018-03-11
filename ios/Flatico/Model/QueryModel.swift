@@ -7,13 +7,10 @@
 //
 
 import Foundation
-
+import UIKit
 // MARK: - Singleton
 
-final class QueryModel {
-    
-    // Can't init is singleton
-    private init() { }
+final class QueryModel  {
     
     // MARK: Shared Instance
     
@@ -27,6 +24,7 @@ final class QueryModel {
     var floor = 1
     var isBalconExist = true
     var totalSquere = 42
+    var imageToUpload = UIImage()
     
     func resetToDefault() {
         self.latitude = 0.0
@@ -35,6 +33,6 @@ final class QueryModel {
         self.floor = 1
         self.isBalconExist = true
         self.totalSquere = 42
+        self.imageToUpload = UIImage()
     }
-    
 }
