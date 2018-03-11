@@ -8,6 +8,8 @@ User=root
 WorkingDirectory=/root/flatico/backend
 ExecStart=/root/flatico/backend/run.sh
 Restart=always
+StandardOutput=journal+console
+StandardError=journal+console
 
 [Install]
 WantedBy=multi-user.target
