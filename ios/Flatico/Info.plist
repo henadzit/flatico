@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>NSCameraUsageDescription</key>
+    <string>This app will use camera.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>You can select photos to attach to reports.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Flatico need your current location for make it right</string>
 	<key>Privacy – Location When In Use Usage Description</key>

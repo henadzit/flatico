@@ -21,8 +21,20 @@ final class QueryModel {
     
     // MARK: Local Variable
     
-    var emptyStringArray : [String] = []
     var latitude = 0.0
     var longitude = 0.0
+    var roomCount = 1
+    var floor = 1
+    var isBalconExist = true
+    var totalSquere = 42
+    
+    func resetToDefault() {
+        self.latitude = 0.0
+        self.longitude = 0.0
+        self.roomCount = 1
+        self.floor = 1
+        self.isBalconExist = true
+        self.totalSquere = 42
+    }
     
 }

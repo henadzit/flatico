@@ -82,6 +82,11 @@ class MapViewController: UIViewController {
         marker.map = mapView
     }
     
+    @IBAction func nextButtonDidPressed(_ sender: UIButton) {
+        let questionViewController = storyboard?.instantiateViewController(withIdentifier: "questionViewControllerKey") as! QuestionsViewController
+        navigationController?.pushViewController(questionViewController,
+                                                 animated: true)
+    }
 }
 
 extension MapViewController : GMSMapViewDelegate {
