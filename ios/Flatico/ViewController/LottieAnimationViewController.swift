@@ -81,17 +81,36 @@ class LottieAnimationViewController: UIViewController {
                 upload.responseJSON { response in
                     print("Succesfully uploaded")
                     print("\(response)")
-                    
+    
+
+                  //  var stringString = response.result.value.debugDescription
+                    var finalPrice = response.result.value as! Float
                     
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "finalViewControllerKey") as! FinalViewController
-                    vc.finalPriceValue = 10
+                    vc.finalPriceValue = Int(finalPrice)
                     self.navigationController?.pushViewController(vc,
-                                                             animated: true)
+                                                                  animated: true)
+                    
+                    
+//                    if let result = response.result.value {
+//                        let JSON = result as! NSDictionary
+//
+//                        let predictatedPrice = JSON["predicted_price"] as! NSDictionary
+//
+//                        print(JSON)
+//
+////                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "finalViewControllerKey") as! FinalViewController
+////                        vc.finalPriceValue = 10
+////                        self.navigationController?.pushViewController(vc,
+////                                                                      animated: true)
+//                    }
+
                 }
             case .failure(let error):
                 print("Error in upload: \(error.localizedDescription)")
                 // onError?(error)
             }
+            
         }
     }
 }
