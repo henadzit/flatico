@@ -62,7 +62,7 @@ async def handle_predict(request):
     # import pdb; pdb.set_trace()
 
     response_data = { 'predicted_price': { 'value': price, 'currency': 'USD' }, 'input_params': model_input_params }
-    return web.json_response(response_data)
+    return web.Response(text=str(response_data['predicted_price']['value']))
 
 app = web.Application(client_max_size=10000000)
 app.router.add_post('/v1/predict-price', handle_predict)

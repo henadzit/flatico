@@ -5,11 +5,13 @@
     - git:
         repo: 'https://github.com/umate/flatico.git'
         dest: '/root/flatico'
+        version: master
         update: yes
 
     - git:
         repo: 'https://github.com/henadzit/image-classification-tensorflow.git'
         dest: '/root/image-classification'
+        version: master
         update: yes
 
     - name: Install Image classifier requirements
@@ -22,7 +24,7 @@
       shell: |
         python3 train.py \
         --bottleneck_dir=logs/bottlenecks \
-        --how_many_training_steps=1500 \
+        --how_many_training_steps=1000 \
         --model_dir=inception \
         --summaries_dir=logs/training_summaries/basic \
         --output_graph=/root/flatico/backend/logs/trained_graph.pb \

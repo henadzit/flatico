@@ -1,3 +1,4 @@
 .scrapy/
 *.jl
 __pycache__/
+*.retry
