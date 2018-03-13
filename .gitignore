@@ -2,3 +2,4 @@
 *.jl
 __pycache__/
 *.retry
+*.pyc
